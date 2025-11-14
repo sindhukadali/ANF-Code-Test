@@ -17,6 +17,9 @@
 		3E727F03267281F7006C11AC /* ANFExploreCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E727F02267281F7006C11AC /* ANFExploreCardTableViewController.swift */; };
 		A542B3B92EC76835003B2859 /* ANFExploreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542B3B82EC76829003B2859 /* ANFExploreData.swift */; };
 		A542B3C22EC76AB1003B2859 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542B3C12EC76AB1003B2859 /* String+Extensions.swift */; };
+		A542B3C72EC78643003B2859 /* ExploreDataLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542B3C62EC78643003B2859 /* ExploreDataLoading.swift */; };
+		A542B3C92EC78712003B2859 /* ExploreDataLoaderTests.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542B3C82EC78711003B2859 /* ExploreDataLoaderTests.swift.swift */; };
+		A542B3CA2EC78906003B2859 /* exploreData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E4AB9392676D86100C79456 /* exploreData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,8 @@
 		3E727F02267281F7006C11AC /* ANFExploreCardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANFExploreCardTableViewController.swift; sourceTree = "<group>"; };
 		A542B3B82EC76829003B2859 /* ANFExploreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANFExploreData.swift; sourceTree = "<group>"; };
 		A542B3C12EC76AB1003B2859 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		A542B3C62EC78643003B2859 /* ExploreDataLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDataLoading.swift; sourceTree = "<group>"; };
+		A542B3C82EC78711003B2859 /* ExploreDataLoaderTests.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDataLoaderTests.swift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +90,7 @@
 		3E727ED126727088006C11AC /* ANF Code Test */ = {
 			isa = PBXGroup;
 			children = (
+				A542B3C52EC78617003B2859 /* Service */,
 				A542B3C02EC76AA8003B2859 /* Extensions */,
 				A542B3BC2EC76A6C003B2859 /* Models */,
 				3E727F02267281F7006C11AC /* ANFExploreCardTableViewController.swift */,
@@ -103,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				3E727EE92672708B006C11AC /* ANFExploreCardTableViewControllerTests.swift */,
+				A542B3C82EC78711003B2859 /* ExploreDataLoaderTests.swift.swift */,
 				3E727EEB2672708B006C11AC /* Info.plist */,
 			);
 			path = "ANF Code TestTests";
@@ -122,6 +129,14 @@
 				A542B3C12EC76AB1003B2859 /* String+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A542B3C52EC78617003B2859 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A542B3C62EC78643003B2859 /* ExploreDataLoading.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +230,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A542B3CA2EC78906003B2859 /* exploreData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A542B3C72EC78643003B2859 /* ExploreDataLoading.swift in Sources */,
 				A542B3C22EC76AB1003B2859 /* String+Extensions.swift in Sources */,
 				A542B3B92EC76835003B2859 /* ANFExploreData.swift in Sources */,
 				3E727F03267281F7006C11AC /* ANFExploreCardTableViewController.swift in Sources */,
@@ -238,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E727EEA2672708B006C11AC /* ANFExploreCardTableViewControllerTests.swift in Sources */,
+				A542B3C92EC78712003B2859 /* ExploreDataLoaderTests.swift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,8 @@ class ANFExploreCardTableViewControllerTests: XCTestCase {
     
     override func setUp() {
         testInstance = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() as? ANFExploreCardTableViewController
+        testInstance.loadViewIfNeeded()
+        testInstance.viewDidLoad()
     }
 
     func test_numberOfSections_ShouldBeOne() {

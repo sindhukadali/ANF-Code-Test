@@ -8,10 +8,12 @@ import UIKit
 class ANFExploreCardTableViewController: UITableViewController {
     public var exploreData: [ANFExploreData] = []
     
+    let dataLoader = ExploreDataLoader(localFileName: "exploreData")
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadExploreData()
+        loadData()
     }
     
     private func loadExploreData() {
@@ -28,6 +30,21 @@ class ANFExploreCardTableViewController: UITableViewController {
         } catch {
             print("❌ JSON decoding failed: \(error)")
         }
+    }
+    
+    private func loadData() {
+        dataLoader.load { result in
+            switch result {
+            case .success(let items):
+                self.exploreData = items
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .failure(let err):
+                print("Error:", err)
+            }
+        }
+
     }
 
     
