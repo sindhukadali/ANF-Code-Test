@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -41,6 +41,10 @@
 		3E727EEB2672708B006C11AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E727F02267281F7006C11AC /* ANFExploreCardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANFExploreCardTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A542B3B52EC763D7003B2859 /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3E727ECC26727088006C11AC /* Frameworks */ = {
@@ -81,6 +85,7 @@
 		3E727ED126727088006C11AC /* ANF Code Test */ = {
 			isa = PBXGroup;
 			children = (
+				A542B3B52EC763D7003B2859 /* Extensions */,
 				3E727F02267281F7006C11AC /* ANFExploreCardTableViewController.swift */,
 				3E727ED226727088006C11AC /* AppDelegate.swift */,
 				3E727ED426727088006C11AC /* SceneDelegate.swift */,
@@ -116,6 +121,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A542B3B52EC763D7003B2859 /* Extensions */,
 			);
 			name = "ANF Code Test";
 			productName = "ANF Code Test";

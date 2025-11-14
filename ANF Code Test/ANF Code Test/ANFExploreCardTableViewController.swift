@@ -43,6 +43,62 @@ class ANFExploreCardTableViewController: UITableViewController {
             promoMessageLabel.text = promoMessageText
         }
         
+        if let bottomDescriptionLabel = cell.viewWithTag(5) as? UILabel,
+           let bottomDescriptionText = exploreData?[indexPath.row]["bottomDescription"] as? String {
+            if let bottomDescriptionAttributedString = bottomDescriptionText.htmlToAttributedString {
+                bottomDescriptionLabel.attributedText = bottomDescriptionAttributedString
+                bottomDescriptionLabel.textAlignment = .center
+                bottomDescriptionLabel.font = UIFont.systemFont(ofSize: 13)
+            } else {
+                bottomDescriptionLabel.text = bottomDescriptionText
+            }
+        }
+        
+        if let buttonContainer = cell.viewWithTag(6) as? UIStackView {
+            buttonContainer.arrangedSubviews.forEach { $0.removeFromSuperview() }
+
+            let contentArray = exploreData?[indexPath.row]["content"] as? [[String: Any]] ?? []
+
+            for content in contentArray {
+
+                let title = content["title"] as? String ?? ""
+                let target = content["target"] as? String ?? ""
+
+                let button = UIButton(type: .system)
+                button.setTitle(title, for: .normal)
+                button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+                button.setTitleColor(.black, for: .normal)
+                button.backgroundColor = .white
+                button.layer.borderWidth = 1
+                button.layer.borderColor = UIColor.lightGray.cgColor
+
+                button.translatesAutoresizingMaskIntoConstraints = false
+                button.heightAnchor.constraint(equalToConstant: 48).isActive = true
+
+                button.restorationIdentifier = target
+
+                button.addTarget(self,
+                                 action: #selector(buttonTapped(_:)),
+                                 for: .touchUpInside)
+
+                buttonContainer.addArrangedSubview(button)
+
+                NSLayoutConstraint.activate([
+                    button.leadingAnchor.constraint(equalTo: buttonContainer.leadingAnchor),
+                    button.trailingAnchor.constraint(equalTo: buttonContainer.trailingAnchor)
+                ])
+            }
+
+            buttonContainer.isHidden = contentArray.isEmpty
+        }
+
         return cell
+    }
+    
+    @objc private func buttonTapped(_ sender: UIButton) {
+        if let target = sender.restorationIdentifier  {
+            guard let url = URL(string: target) else { return }
+            UIApplication.shared.open(url)
+        }
     }
 }
