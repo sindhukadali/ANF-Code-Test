@@ -33,6 +33,16 @@ class ANFExploreCardTableViewController: UITableViewController {
             imageView.image = image
         }
         
+        if let topDescription = cell.viewWithTag(3) as? UILabel,
+           let topDescriptionText = exploreData?[indexPath.row]["topDescription"] as? String {
+            topDescription.text = topDescriptionText
+        }
+        
+        if let promoMessageLabel = cell.viewWithTag(4) as? UILabel,
+           let promoMessageText = exploreData?[indexPath.row]["promoMessage"] as? String {
+            promoMessageLabel.text = promoMessageText
+        }
+        
         return cell
     }
 }
