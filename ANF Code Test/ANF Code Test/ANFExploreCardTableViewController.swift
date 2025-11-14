@@ -7,7 +7,8 @@ import UIKit
 
 class ANFExploreCardTableViewController: UITableViewController {
     public var exploreData: [ANFExploreData] = []
-    
+    private var isRefreshing = false
+
     private let activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.hidesWhenStopped = true
@@ -23,7 +24,18 @@ class ANFExploreCardTableViewController: UITableViewController {
         super.viewDidLoad()
         setupActivityIndicator()
         loadData()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(refreshData),
+            name: .appDidEnterForeground,
+            object: nil
+        )
     }
+    
+    @objc private func refreshData() {
+        loadData()
+    }
+
     
     private func setupActivityIndicator() {
         view.addSubview(activityIndicator)
@@ -36,11 +48,18 @@ class ANFExploreCardTableViewController: UITableViewController {
     }
     
     private func loadData() {
+        guard !isRefreshing else { return }
+
+        isRefreshing = true
+
         DispatchQueue.main.async {
             self.activityIndicator.startAnimating()
         }
 
-        dataLoader.load { result in
+        dataLoader.load {  [weak self] result in
+            guard let self = self else { return }
+            self.isRefreshing = false
+            
             switch result {
             case .success(let items):
                 self.exploreData = items
