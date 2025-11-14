@@ -6,45 +6,56 @@
 import UIKit
 
 class ANFExploreCardTableViewController: UITableViewController {
+    public var exploreData: [ANFExploreData] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-    private var exploreData: [[AnyHashable: Any]]? {
-        if let filePath = Bundle.main.path(forResource: "exploreData", ofType: "json"),
-         let fileContent = try? Data(contentsOf: URL(fileURLWithPath: filePath)),
-         let jsonDictionary = try? JSONSerialization.jsonObject(with: fileContent, options: .mutableContainers) as? [[AnyHashable: Any]] {
-            return jsonDictionary
-        }
-        return nil
+        loadExploreData()
     }
     
+    private func loadExploreData() {
+        guard let filePath = Bundle.main.path(forResource: "exploreData", ofType: "json"),
+              let fileContent = try? Data(contentsOf: URL(fileURLWithPath: filePath)) else {
+            print("❌ exploreData.json not found or unreadable.")
+            return
+        }
+
+        do {
+            let decodedData = try JSONDecoder().decode([ANFExploreData].self, from: fileContent)
+            self.exploreData = decodedData
+            self.tableView.reloadData()
+        } catch {
+            print("❌ JSON decoding failed: \(error)")
+        }
+    }
+
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        exploreData?.count ?? 0
+        exploreData.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "exploreContentCell", for: indexPath)
-        if let titleLabel = cell.viewWithTag(1) as? UILabel,
-           let titleText = exploreData?[indexPath.row]["title"] as? String {
-            titleLabel.text = titleText
+        if let titleLabel = cell.viewWithTag(1) as? UILabel {
+            titleLabel.text = exploreData[indexPath.row].title
         }
         
         if let imageView = cell.viewWithTag(2) as? UIImageView,
-           let name = exploreData?[indexPath.row]["backgroundImage"] as? String,
-           let image = UIImage(named: name) {
+           let image = UIImage(named: exploreData[indexPath.row].backgroundImage) {
             imageView.image = image
         }
         
-        if let topDescription = cell.viewWithTag(3) as? UILabel,
-           let topDescriptionText = exploreData?[indexPath.row]["topDescription"] as? String {
-            topDescription.text = topDescriptionText
+        if let topDescription = cell.viewWithTag(3) as? UILabel {
+            topDescription.text = exploreData[indexPath.row].topDescription
         }
         
-        if let promoMessageLabel = cell.viewWithTag(4) as? UILabel,
-           let promoMessageText = exploreData?[indexPath.row]["promoMessage"] as? String {
-            promoMessageLabel.text = promoMessageText
+        if let promoMessageLabel = cell.viewWithTag(4) as? UILabel {
+            promoMessageLabel.text = exploreData[indexPath.row].promoMessage
         }
         
         if let bottomDescriptionLabel = cell.viewWithTag(5) as? UILabel,
-           let bottomDescriptionText = exploreData?[indexPath.row]["bottomDescription"] as? String {
+           let bottomDescriptionText = exploreData[indexPath.row].bottomDescription {
             if let bottomDescriptionAttributedString = bottomDescriptionText.htmlToAttributedString {
                 bottomDescriptionLabel.attributedText = bottomDescriptionAttributedString
                 bottomDescriptionLabel.textAlignment = .center
@@ -57,12 +68,12 @@ class ANFExploreCardTableViewController: UITableViewController {
         if let buttonContainer = cell.viewWithTag(6) as? UIStackView {
             buttonContainer.arrangedSubviews.forEach { $0.removeFromSuperview() }
 
-            let contentArray = exploreData?[indexPath.row]["content"] as? [[String: Any]] ?? []
+            let contentArray = exploreData[indexPath.row].content ?? []
 
             for content in contentArray {
 
-                let title = content["title"] as? String ?? ""
-                let target = content["target"] as? String ?? ""
+                let title = content.title
+                let target = content.target ?? ""
 
                 let button = UIButton(type: .system)
                 button.setTitle(title, for: .normal)

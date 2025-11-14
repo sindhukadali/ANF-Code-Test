@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		3E727EDF2672708B006C11AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E727EDD2672708B006C11AC /* LaunchScreen.storyboard */; };
 		3E727EEA2672708B006C11AC /* ANFExploreCardTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E727EE92672708B006C11AC /* ANFExploreCardTableViewControllerTests.swift */; };
 		3E727F03267281F7006C11AC /* ANFExploreCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E727F02267281F7006C11AC /* ANFExploreCardTableViewController.swift */; };
+		A542B3B92EC76835003B2859 /* ANFExploreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542B3B82EC76829003B2859 /* ANFExploreData.swift */; };
+		A542B3C22EC76AB1003B2859 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542B3C12EC76AB1003B2859 /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,11 +42,9 @@
 		3E727EE92672708B006C11AC /* ANFExploreCardTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANFExploreCardTableViewControllerTests.swift; sourceTree = "<group>"; };
 		3E727EEB2672708B006C11AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E727F02267281F7006C11AC /* ANFExploreCardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANFExploreCardTableViewController.swift; sourceTree = "<group>"; };
+		A542B3B82EC76829003B2859 /* ANFExploreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANFExploreData.swift; sourceTree = "<group>"; };
+		A542B3C12EC76AB1003B2859 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		A542B3B52EC763D7003B2859 /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3E727ECC26727088006C11AC /* Frameworks */ = {
@@ -85,7 +85,8 @@
 		3E727ED126727088006C11AC /* ANF Code Test */ = {
 			isa = PBXGroup;
 			children = (
-				A542B3B52EC763D7003B2859 /* Extensions */,
+				A542B3C02EC76AA8003B2859 /* Extensions */,
+				A542B3BC2EC76A6C003B2859 /* Models */,
 				3E727F02267281F7006C11AC /* ANFExploreCardTableViewController.swift */,
 				3E727ED226727088006C11AC /* AppDelegate.swift */,
 				3E727ED426727088006C11AC /* SceneDelegate.swift */,
@@ -107,6 +108,22 @@
 			path = "ANF Code TestTests";
 			sourceTree = "<group>";
 		};
+		A542B3BC2EC76A6C003B2859 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A542B3B82EC76829003B2859 /* ANFExploreData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A542B3C02EC76AA8003B2859 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A542B3C12EC76AB1003B2859 /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,9 +138,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				A542B3B52EC763D7003B2859 /* Extensions */,
 			);
 			name = "ANF Code Test";
 			productName = "ANF Code Test";
@@ -211,6 +225,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A542B3C22EC76AB1003B2859 /* String+Extensions.swift in Sources */,
+				A542B3B92EC76835003B2859 /* ANFExploreData.swift in Sources */,
 				3E727F03267281F7006C11AC /* ANFExploreCardTableViewController.swift in Sources */,
 				3E727ED326727088006C11AC /* AppDelegate.swift in Sources */,
 				3E727ED526727088006C11AC /* SceneDelegate.swift in Sources */,
