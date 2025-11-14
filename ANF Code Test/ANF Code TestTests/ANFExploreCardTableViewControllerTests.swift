@@ -11,10 +11,29 @@ class ANFExploreCardTableViewControllerTests: XCTestCase {
 
     var testInstance: ANFExploreCardTableViewController!
     
+    func loadTestData() -> [ANFExploreData]? {
+        
+        guard let filePath = Bundle.main.path(forResource: "exploreData", ofType: "json"),
+              let fileContent = try? Data(contentsOf: URL(fileURLWithPath: filePath)) else {
+            print("❌ exploreData.json not found or unreadable.")
+            return nil
+        }
+        do {
+            let decodedData = try JSONDecoder().decode([ANFExploreData].self, from: fileContent)
+            return decodedData
+        } catch {
+            print("❌ JSON decoding failed: \(error)")
+            return nil
+        }
+    }
+    
     override func setUp() {
         testInstance = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() as? ANFExploreCardTableViewController
         testInstance.loadViewIfNeeded()
         testInstance.viewDidLoad()
+        if let testData = loadTestData() {
+            testInstance.exploreData = testData
+        }
     }
 
     func test_numberOfSections_ShouldBeOne() {

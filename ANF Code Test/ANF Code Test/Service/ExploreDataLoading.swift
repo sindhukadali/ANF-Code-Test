@@ -19,10 +19,12 @@ final class ExploreDataLoader: ExploreDataLoading {
 
     private let localFileName: String?
     private let remoteURL: URL?
+    private let urlSession: URLSession
 
-    init(localFileName: String? = nil, remoteURL: URL? = nil) {
+    init(localFileName: String? = nil, remoteURL: URL? = nil, urlSession: URLSession = .shared) {
         self.localFileName = localFileName
         self.remoteURL = remoteURL
+        self.urlSession = urlSession
     }
 
     func load(completion: @escaping (Result<[ANFExploreData], Error>) -> Void) {
@@ -70,9 +72,9 @@ private extension ExploreDataLoader {
 
     func loadFromRemote(_ url: URL,
                         completion: @escaping (Result<[ANFExploreData], Error>) -> Void) {
-
-        let task = URLSession.shared.dataTask(with: url) { data, _, error in
-
+        
+        let task = urlSession.dataTask(with: url) { data, _, error in
+            
             if let error = error {
                 completion(.failure(error))
                 return

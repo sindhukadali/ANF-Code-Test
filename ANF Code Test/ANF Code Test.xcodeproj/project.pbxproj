@@ -18,10 +18,12 @@
 		A542B3B92EC76835003B2859 /* ANFExploreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542B3B82EC76829003B2859 /* ANFExploreData.swift */; };
 		A542B3C22EC76AB1003B2859 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542B3C12EC76AB1003B2859 /* String+Extensions.swift */; };
 		A542B3C72EC78643003B2859 /* ExploreDataLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542B3C62EC78643003B2859 /* ExploreDataLoading.swift */; };
-		A542B3C92EC78712003B2859 /* ExploreDataLoaderTests.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542B3C82EC78711003B2859 /* ExploreDataLoaderTests.swift.swift */; };
+		A542B3C92EC78712003B2859 /* ExploreDataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542B3C82EC78711003B2859 /* ExploreDataLoaderTests.swift */; };
 		A542B3CA2EC78906003B2859 /* exploreData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E4AB9392676D86100C79456 /* exploreData.json */; };
 		A542B3CC2EC7911D003B2859 /* UIImageView+AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542B3CB2EC7911C003B2859 /* UIImageView+AsyncImage.swift */; };
 		A542B3CE2EC79511003B2859 /* Notification+Foreground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542B3CD2EC79510003B2859 /* Notification+Foreground.swift */; };
+		A542B3D42EC7A8C6003B2859 /* ExploreDataLoaderRemoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542B3D32EC7A8BE003B2859 /* ExploreDataLoaderRemoteTests.swift */; };
+		A542B3D62EC7A902003B2859 /* ANFExploreDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542B3D52EC7A8FD003B2859 /* ANFExploreDataModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,9 +52,11 @@
 		A542B3B82EC76829003B2859 /* ANFExploreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANFExploreData.swift; sourceTree = "<group>"; };
 		A542B3C12EC76AB1003B2859 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		A542B3C62EC78643003B2859 /* ExploreDataLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDataLoading.swift; sourceTree = "<group>"; };
-		A542B3C82EC78711003B2859 /* ExploreDataLoaderTests.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDataLoaderTests.swift.swift; sourceTree = "<group>"; };
+		A542B3C82EC78711003B2859 /* ExploreDataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDataLoaderTests.swift; sourceTree = "<group>"; };
 		A542B3CB2EC7911C003B2859 /* UIImageView+AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+AsyncImage.swift"; sourceTree = "<group>"; };
 		A542B3CD2EC79510003B2859 /* Notification+Foreground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Foreground.swift"; sourceTree = "<group>"; };
+		A542B3D32EC7A8BE003B2859 /* ExploreDataLoaderRemoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDataLoaderRemoteTests.swift; sourceTree = "<group>"; };
+		A542B3D52EC7A8FD003B2859 /* ANFExploreDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANFExploreDataModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +117,9 @@
 			isa = PBXGroup;
 			children = (
 				3E727EE92672708B006C11AC /* ANFExploreCardTableViewControllerTests.swift */,
-				A542B3C82EC78711003B2859 /* ExploreDataLoaderTests.swift.swift */,
+				A542B3C82EC78711003B2859 /* ExploreDataLoaderTests.swift */,
+				A542B3D32EC7A8BE003B2859 /* ExploreDataLoaderRemoteTests.swift */,
+				A542B3D52EC7A8FD003B2859 /* ANFExploreDataModelTests.swift */,
 				3E727EEB2672708B006C11AC /* Info.plist */,
 			);
 			path = "ANF Code TestTests";
@@ -263,7 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E727EEA2672708B006C11AC /* ANFExploreCardTableViewControllerTests.swift in Sources */,
-				A542B3C92EC78712003B2859 /* ExploreDataLoaderTests.swift.swift in Sources */,
+				A542B3C92EC78712003B2859 /* ExploreDataLoaderTests.swift in Sources */,
+				A542B3D62EC7A902003B2859 /* ANFExploreDataModelTests.swift in Sources */,
+				A542B3D42EC7A8C6003B2859 /* ExploreDataLoaderRemoteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
