@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23504"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +26,7 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dRT-hj-h8o">
                                             <rect key="frame" x="16" y="16" width="382" height="200"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" systemColor="systemGray5Color"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="200" id="d33-U9-7di"/>
                                             </constraints>
@@ -34,9 +34,6 @@
                                         <stackView opaque="NO" tag="6" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="W1p-0U-xHn">
                                             <rect key="frame" x="16" y="348.5" width="382" height="72.5"/>
                                         </stackView>
-                                        <activityIndicatorView opaque="NO" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="IaF-TG-avH">
-                                            <rect key="frame" x="197" y="106" width="20" height="20"/>
-                                        </activityIndicatorView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mpG-SL-Sow">
                                             <rect key="frame" x="16" y="242.5" width="382" height="90"/>
                                             <subviews>
@@ -74,11 +71,9 @@
                                         <constraint firstAttribute="trailing" secondItem="W1p-0U-xHn" secondAttribute="trailing" constant="16" id="SFj-7C-RQv"/>
                                         <constraint firstItem="mpG-SL-Sow" firstAttribute="leading" secondItem="jOI-hx-gqf" secondAttribute="leading" constant="16" id="b2x-oM-86S"/>
                                         <constraint firstItem="W1p-0U-xHn" firstAttribute="top" secondItem="rip-SL-0I5" secondAttribute="bottom" constant="16" id="bOh-wG-qOK"/>
-                                        <constraint firstItem="IaF-TG-avH" firstAttribute="centerX" secondItem="dRT-hj-h8o" secondAttribute="centerX" id="gyq-aN-5ab"/>
                                         <constraint firstItem="dRT-hj-h8o" firstAttribute="leading" secondItem="jOI-hx-gqf" secondAttribute="leading" constant="16" id="kbU-Tt-zJI"/>
                                         <constraint firstAttribute="trailing" secondItem="dRT-hj-h8o" secondAttribute="trailing" constant="16" id="t7P-Oz-13P"/>
                                         <constraint firstItem="dRT-hj-h8o" firstAttribute="top" secondItem="jOI-hx-gqf" secondAttribute="top" constant="16" id="tCm-yL-jTh"/>
-                                        <constraint firstItem="IaF-TG-avH" firstAttribute="centerY" secondItem="dRT-hj-h8o" secondAttribute="centerY" id="yly-dz-xXU"/>
                                         <constraint firstAttribute="trailing" secondItem="mpG-SL-Sow" secondAttribute="trailing" constant="16" id="zUG-Vq-sxy"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -98,6 +93,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

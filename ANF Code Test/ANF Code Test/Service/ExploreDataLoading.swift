@@ -18,13 +18,17 @@ protocol ExploreDataLoading {
 final class ExploreDataLoader: ExploreDataLoading {
 
     private let localFileName: String?
+    private let remoteURL: URL?
 
-    init(localFileName: String? = nil) {
+    init(localFileName: String? = nil, remoteURL: URL? = nil) {
         self.localFileName = localFileName
+        self.remoteURL = remoteURL
     }
 
     func load(completion: @escaping (Result<[ANFExploreData], Error>) -> Void) {
-         if let fileName = localFileName {
+        if let url = remoteURL {
+            loadFromRemote(url, completion: completion)
+        } else if let fileName = localFileName {
             loadFromLocal(fileName, completion: completion)
         } else {
             completion(.failure(NSError(domain: "ExploreDataLoader", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data source provided"])))
@@ -57,5 +61,40 @@ private extension ExploreDataLoader {
                 completion(.failure(error))
             }
         }
+    }
+}
+
+// MARK: - Remote API Loader
+
+private extension ExploreDataLoader {
+
+    func loadFromRemote(_ url: URL,
+                        completion: @escaping (Result<[ANFExploreData], Error>) -> Void) {
+
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+
+            guard let data = data else {
+                completion(.failure(
+                    NSError(domain: "ExploreDataLoader",
+                            code: -3,
+                            userInfo: [NSLocalizedDescriptionKey: "Remote API returned no data"])
+                ))
+                return
+            }
+
+            do {
+                let decoded = try JSONDecoder().decode([ANFExploreData].self, from: data)
+                completion(.success(decoded))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+
+        task.resume()
     }
 }

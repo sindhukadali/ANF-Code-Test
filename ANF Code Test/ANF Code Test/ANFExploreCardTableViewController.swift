@@ -8,43 +8,53 @@ import UIKit
 class ANFExploreCardTableViewController: UITableViewController {
     public var exploreData: [ANFExploreData] = []
     
-    let dataLoader = ExploreDataLoader(localFileName: "exploreData")
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.hidesWhenStopped = true
+        indicator.color = .darkGray
+        return indicator
+    }()
+
+    let dataLoader = ExploreDataLoader(remoteURL: URL(string: "https://www.abercrombie.com/anf/nativeapp/qa/codetest/codeTest_exploreData.css")!)
+
+    // let dataLoader = ExploreDataLoader(localFileName: "exploreData")
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupActivityIndicator()
         loadData()
     }
     
-    private func loadExploreData() {
-        guard let filePath = Bundle.main.path(forResource: "exploreData", ofType: "json"),
-              let fileContent = try? Data(contentsOf: URL(fileURLWithPath: filePath)) else {
-            print("❌ exploreData.json not found or unreadable.")
-            return
-        }
+    private func setupActivityIndicator() {
+        view.addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
 
-        do {
-            let decodedData = try JSONDecoder().decode([ANFExploreData].self, from: fileContent)
-            self.exploreData = decodedData
-            self.tableView.reloadData()
-        } catch {
-            print("❌ JSON decoding failed: \(error)")
-        }
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
     
     private func loadData() {
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
+
         dataLoader.load { result in
             switch result {
             case .success(let items):
                 self.exploreData = items
                 DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
                     self.tableView.reloadData()
                 }
             case .failure(let err):
                 print("Error:", err)
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                }
             }
         }
-
     }
 
     
@@ -58,9 +68,11 @@ class ANFExploreCardTableViewController: UITableViewController {
             titleLabel.text = exploreData[indexPath.row].title
         }
         
-        if let imageView = cell.viewWithTag(2) as? UIImageView,
-           let image = UIImage(named: exploreData[indexPath.row].backgroundImage) {
-            imageView.image = image
+        if let imageView = cell.viewWithTag(2) as? UIImageView {
+            imageView.setImage(
+                    from: exploreData[indexPath.row].backgroundImage,
+                    tableView: tableView
+                )
         }
         
         if let topDescription = cell.viewWithTag(3) as? UILabel {

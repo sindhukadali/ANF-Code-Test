@@ -20,6 +20,7 @@
 		A542B3C72EC78643003B2859 /* ExploreDataLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542B3C62EC78643003B2859 /* ExploreDataLoading.swift */; };
 		A542B3C92EC78712003B2859 /* ExploreDataLoaderTests.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542B3C82EC78711003B2859 /* ExploreDataLoaderTests.swift.swift */; };
 		A542B3CA2EC78906003B2859 /* exploreData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E4AB9392676D86100C79456 /* exploreData.json */; };
+		A542B3CC2EC7911D003B2859 /* UIImageView+AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542B3CB2EC7911C003B2859 /* UIImageView+AsyncImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		A542B3C12EC76AB1003B2859 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		A542B3C62EC78643003B2859 /* ExploreDataLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDataLoading.swift; sourceTree = "<group>"; };
 		A542B3C82EC78711003B2859 /* ExploreDataLoaderTests.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDataLoaderTests.swift.swift; sourceTree = "<group>"; };
+		A542B3CB2EC7911C003B2859 /* UIImageView+AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+AsyncImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				A542B3C12EC76AB1003B2859 /* String+Extensions.swift */,
+				A542B3CB2EC7911C003B2859 /* UIImageView+AsyncImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			files = (
 				A542B3C72EC78643003B2859 /* ExploreDataLoading.swift in Sources */,
 				A542B3C22EC76AB1003B2859 /* String+Extensions.swift in Sources */,
+				A542B3CC2EC7911D003B2859 /* UIImageView+AsyncImage.swift in Sources */,
 				A542B3B92EC76835003B2859 /* ANFExploreData.swift in Sources */,
 				3E727F03267281F7006C11AC /* ANFExploreCardTableViewController.swift in Sources */,
 				3E727ED326727088006C11AC /* AppDelegate.swift in Sources */,
